@@ -3,6 +3,7 @@ package com.example.demo.Controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -17,6 +18,7 @@ import com.example.demo.Services.IProduitService;
 
 @RestController
 @RequestMapping("/api/produit")
+@CrossOrigin(origins="http://localhost:4200",allowedHeaders="*")
 public class ProduitController {
 
 	@Autowired
@@ -27,17 +29,17 @@ public class ProduitController {
 		return produitservice.getProduits();
 	}
 
-	@PostMapping
+	@PostMapping("/add")
 	public void addProduit(@RequestBody Produit produit) {
 		produitservice.addProduit(produit);
 	}
 
-	@PutMapping
+	@PutMapping("/update")
 	public void updateProduit(@RequestBody Produit produit) {
 		produitservice.updateProduit(produit);
 	}
 
-	@DeleteMapping("/{ref}")
+	@DeleteMapping("/delete/{ref}")
 	public void deleteProduit(@PathVariable String ref) {
 		produitservice.deleteProduit(ref);
 	}

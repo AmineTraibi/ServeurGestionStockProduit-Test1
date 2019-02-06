@@ -10,12 +10,12 @@ import com.example.demo.Entities.Produit;
 @Service
 public class ProduitMockServiceImpl implements IProduitService {
 
-	private List<Produit> produits;
+    private List<Produit> produits;
 
 	public ProduitMockServiceImpl() {
 		produits = new ArrayList<Produit>();
 
-		produits.add(new Produit("Livre", 50, 20));
+		produits.add(new Produit("Livre", 50, 20.5f));
 		produits.add(new Produit("Cahier", 200, 5.25f));
 		produits.add(new Produit("Stylo", 500, 10.25f));
 	}
@@ -32,15 +32,20 @@ public class ProduitMockServiceImpl implements IProduitService {
 
 	@Override
 	public void updateProduit(Produit produit) {
-		produits.remove(produit);
-		produits.add(produit);
+		for(int i=0;i<produits.size();i++) {
+			if(produits.get(i).getRef().equals(produit.getRef())){
+				produits.set(i, produit);
+			}
+		}
 	}
 
 	@Override
 	public void deleteProduit(String ref) {
-		Produit prd = new Produit();
-		prd.setRef(ref);
-		produits.remove(prd);
+		for(int i=0;i<produits.size();i++) {
+			if(produits.get(i).getRef().equals(ref)) {
+				produits.remove(produits.get(i));
+			}
+		}
 	}
 
 }
