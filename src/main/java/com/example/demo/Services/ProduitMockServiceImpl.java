@@ -40,9 +40,9 @@ public class ProduitMockServiceImpl implements IProduitService {
 	}
 
 	@Override
-	public void deleteProduit(String ref) {
+	public void deleteProduit(long id) {
 		for(int i=0;i<produits.size();i++) {
-			if(produits.get(i).getRef().equals(ref)) {
+			if(produits.get(i).getId()==id) {
 				produits.remove(produits.get(i));
 			}
 		}
