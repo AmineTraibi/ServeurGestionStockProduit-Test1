@@ -5,6 +5,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+
 @Entity
 public class Produit {
 
@@ -84,7 +85,5 @@ public class Produit {
 			return false;
 		return true;
 	}
-
-	
 
 }
