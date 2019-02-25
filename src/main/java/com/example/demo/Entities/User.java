@@ -10,31 +10,28 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
-import javax.persistence.OneToMany;
 import javax.persistence.JoinColumn;
 
 @Entity
 public class User {
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="USER_ID")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "USER_ID")
 	private Long id;
-	
-	@Column(unique=true)
+
+	@Column(unique = true)
 	private String username;
-	
+
 	private String password;
-	
+
 	private boolean enable;
-	
-	@ManyToMany(fetch=FetchType.EAGER)
-	@JoinTable(name="USERS_ROLES",
-	joinColumns={@JoinColumn(name="USER_ID")},
-	inverseJoinColumns={@JoinColumn(name="ROLE_ID")})
+
+	@ManyToMany(fetch = FetchType.EAGER)
+	@JoinTable(name = "USERS_ROLES", joinColumns = { @JoinColumn(name = "USER_ID") }, inverseJoinColumns = {
+			@JoinColumn(name = "ROLE_ID") })
 	private List<Role> roles;
-	
-		
+
 	public User() {
 		super();
 	}
@@ -110,6 +107,5 @@ public class User {
 			return false;
 		return true;
 	}
-	
-	
+
 }

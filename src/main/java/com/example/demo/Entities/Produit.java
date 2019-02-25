@@ -5,14 +5,13 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-
 @Entity
 public class Produit {
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-    private long id;
-    
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private long id;
+
 	private String ref;
 
 	private int quantite;
@@ -53,8 +52,6 @@ public class Produit {
 	public void setPrixUnitaire(float prixUnitaire) {
 		this.prixUnitaire = prixUnitaire;
 	}
-	
-	
 
 	public long getId() {
 		return id;
