@@ -1,4 +1,4 @@
-package com.example.demo.Entities;
+package com.example.demo.entities;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -6,7 +6,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class Produit {
+public class ProduitDTO {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,11 +18,11 @@ public class Produit {
 
 	private float prixUnitaire;
 
-	public Produit() {
+	public ProduitDTO() {
 		super();
 	}
 
-	public Produit(String ref, int quantite, float prixUnitaire) {
+	public ProduitDTO(String ref, int quantite, float prixUnitaire) {
 		super();
 		this.ref = ref;
 		this.quantite = quantite;
@@ -77,7 +77,7 @@ public class Produit {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Produit other = (Produit) obj;
+		ProduitDTO other = (ProduitDTO) obj;
 		if (id != other.id)
 			return false;
 		return true;

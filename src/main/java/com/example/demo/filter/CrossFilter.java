@@ -1,4 +1,4 @@
-package com.example.demo.Filter;
+package com.example.demo.filter;
 
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
@@ -21,6 +21,7 @@ public class CrossFilter implements Filter {
 
 	@Override
 	public void init(FilterConfig fc) throws ServletException {
+		// Do nothing because
 	}
 
 	@Override
@@ -45,6 +46,7 @@ public class CrossFilter implements Filter {
 
 	@Override
 	public void destroy() {
+		// Do nothing because
 	}
 
 }

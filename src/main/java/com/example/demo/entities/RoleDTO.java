@@ -1,4 +1,4 @@
-package com.example.demo.Entities;
+package com.example.demo.entities;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -7,7 +7,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class Role {
+public class RoleDTO {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -16,13 +16,13 @@ public class Role {
 	
 	private String name;
 
-	public Role() {
+	public RoleDTO() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
 
-	public Role(String name) {
+	public RoleDTO(String name) {
 		super();
 		this.name = name;
 	}
@@ -44,7 +44,7 @@ public class Role {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Role other = (Role) obj;
+		RoleDTO other = (RoleDTO) obj;
 		if (id == null) {
 			if (other.id != null)
 				return false;

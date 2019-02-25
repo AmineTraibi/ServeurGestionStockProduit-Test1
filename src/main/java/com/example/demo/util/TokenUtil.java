@@ -1,5 +1,5 @@
 
-package com.example.demo.Util;
+package com.example.demo.util;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -12,7 +12,7 @@ public class TokenUtil {
 	public static final String MAGIC_KEY = "dataprotect";
 
 	public static String createToken(UserDetails userDetails) {
-		long expires = System.currentTimeMillis() + 1000L * 60 * 60;
+		long expires = System.currentTimeMillis() + 1000L * 60;
 		return userDetails.getUsername() + ":" + expires + ":" + computeSignature(userDetails, expires);
 	}
 

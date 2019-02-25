@@ -1,4 +1,4 @@
-package com.example.demo.Security;
+package com.example.demo.security;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -13,9 +13,9 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import com.example.demo.Entities.Role;
-import com.example.demo.Entities.User;
-import com.example.demo.Repository.IUserRepository;
+import com.example.demo.entities.RoleDTO;
+import com.example.demo.entities.UserDTO;
+import com.example.demo.repository.IUserRepository;
 
 @Service
 @Primary
@@ -26,7 +26,7 @@ public class CustomUserDetailsService implements UserDetailsService{
 	
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-		User user=userRepository.findByUsername(username);
+		UserDTO user=userRepository.findByUsername(username);
         
 		boolean accountNonExpired = true; 
 		boolean credentialsNonExpired = true; 
@@ -44,9 +44,9 @@ public class CustomUserDetailsService implements UserDetailsService{
 		return userDetails;
 	}
 	
-	private Collection<? extends GrantedAuthority> getAuthorities(List<Role> roles) {
+	private Collection<? extends GrantedAuthority> getAuthorities(List<RoleDTO> roles) {
 		Collection<GrantedAuthority> grantedAuthorities = new ArrayList<GrantedAuthority>();
-		for (Role role: roles) {
+		for (RoleDTO role: roles) {
 			GrantedAuthority grantedAuthority = new SimpleGrantedAuthority(role.getName());
 			//ROLE_USER && ROLE_ADMIN
 			grantedAuthorities.add(grantedAuthority);

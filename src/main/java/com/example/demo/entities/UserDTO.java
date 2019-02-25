@@ -1,4 +1,4 @@
-package com.example.demo.Entities;
+package com.example.demo.entities;
 
 import java.util.List;
 
@@ -13,7 +13,7 @@ import javax.persistence.ManyToMany;
 import javax.persistence.JoinColumn;
 
 @Entity
-public class User {
+public class UserDTO {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -30,24 +30,24 @@ public class User {
 	@ManyToMany(fetch = FetchType.EAGER)
 	@JoinTable(name = "USERS_ROLES", joinColumns = { @JoinColumn(name = "USER_ID") }, inverseJoinColumns = {
 			@JoinColumn(name = "ROLE_ID") })
-	private List<Role> roles;
+	private List<RoleDTO> roles;
 
-	public User() {
+	public UserDTO() {
 		super();
 	}
 
-	public User(String username, String password, boolean enable) {
+	public UserDTO(String username, String password, boolean enable) {
 		super();
 		this.username = username;
 		this.password = password;
 		this.enable = enable;
 	}
 
-	public List<Role> getRoles() {
+	public List<RoleDTO> getRoles() {
 		return roles;
 	}
 
-	public void setRoles(List<Role> roles) {
+	public void setRoles(List<RoleDTO> roles) {
 		this.roles = roles;
 	}
 
@@ -99,7 +99,7 @@ public class User {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		User other = (User) obj;
+		UserDTO other = (UserDTO) obj;
 		if (id == null) {
 			if (other.id != null)
 				return false;
